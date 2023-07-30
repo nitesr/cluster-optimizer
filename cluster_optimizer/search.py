@@ -14,7 +14,7 @@ from numpy.ma import MaskedArray
 from scipy.stats import rankdata
 from sklearn.base import BaseEstimator, MetaEstimatorMixin, clone
 from sklearn.exceptions import FitFailedWarning, NotFittedError
-from sklearn.model_selection._search import ParameterGrid, _check_param_grid
+from sklearn.model_selection import ParameterGrid
 from sklearn.model_selection._validation import (
     _aggregate_score_dicts,
     _insert_error_scores,
@@ -236,7 +236,7 @@ def _fit_and_score(
 
     # Adjust length of sample weights
     fit_params = fit_params if fit_params is not None else {}
-    fit_params = _check_fit_params(X, fit_params)
+    #fit_params = _check_fit_params(X, fit_params)
 
     if parameters is not None:
         # clone after setting parameters in case any parameters
